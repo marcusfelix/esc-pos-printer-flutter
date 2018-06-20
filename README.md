@@ -4,8 +4,7 @@ Flutter plugin to connect and print on ESC POS Printers.
 
 ## Example
 
-````
-dart
+```` dart
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:escposprinter/escposprinter.dart';
