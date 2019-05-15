@@ -11,7 +11,10 @@ Add this to your package's pubspec.yaml file:
 
 ```` dart
 dependencies:
-  escposprinter: ^0.0.1
+  escposprinter:
+    git:
+        url: https://github.com/marcusfelix/esc-pos-printer-flutter.git
+        ref: master
 ````
 
 2. Install it
