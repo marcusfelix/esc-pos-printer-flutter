@@ -1,10 +1,10 @@
 import 'dart:async';
+import 'dart:typed_data';
 
 import 'package:flutter/services.dart';
 
 class Escposprinter {
-  static const MethodChannel _channel =
-      const MethodChannel('escposprinter');
+  static const MethodChannel _channel = const MethodChannel('escposprinter');
 
   static Future<List> get getUSBDeviceList async {
     final List devices = await _channel.invokeMethod('getUSBDeviceList');
@@ -29,8 +29,14 @@ class Escposprinter {
   }
 
   static Future<bool> printRawData(String text) async {
-    Map<String, dynamic> params = {"text": text};
+    Map<String, dynamic> params = {"raw": text};
     final bool returned = await _channel.invokeMethod('printRawData', params);
+    return returned;
+  }
+
+  static Future<bool> write(Uint8List data) async {
+    Map<String, dynamic> params = {"data": data};
+    final bool returned = await _channel.invokeMethod('write', params);
     return returned;
   }
 }
