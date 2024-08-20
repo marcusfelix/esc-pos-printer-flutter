@@ -23,7 +23,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   _list() async {
-    List returned;
+    List returned = [];
     try {
       returned = await Escposprinter.getUSBDeviceList;
     } on PlatformException {
@@ -35,7 +35,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   _connect(int vendor, int product) async {
-    bool returned;
+    bool returned = false;
     try {
       returned = await Escposprinter.connectPrinter(vendor, product);
     } on PlatformException {
